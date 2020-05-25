@@ -142,17 +142,17 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jTextField4" min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="jtApellidos" min="-2" pref="171" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel7" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jTextField3" min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="jtTelefono" min="-2" pref="171" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel6" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="171" max="-2" attributes="0"/>
+                              <Component id="jtNombres" min="-2" pref="171" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel10" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
@@ -162,14 +162,14 @@
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField2" pref="171" max="32767" attributes="0"/>
-                                  <Component id="jTextField5" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField6" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jtEmail" pref="171" max="32767" attributes="0"/>
+                                  <Component id="jtContraseña" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jtDireccion" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton2" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Component id="btCancelar" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -183,7 +183,7 @@
                           <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton1" min="-2" pref="119" max="-2" attributes="0"/>
+                          <Component id="btRegistrar" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -202,37 +202,37 @@
                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel6" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jTextField1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jtNombres" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField4" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jtApellidos" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField3" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jtTelefono" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField2" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jtEmail" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel10" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                      <Component id="jTextField5" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jtContraseña" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField6" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                      <Component id="jtDireccion" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btRegistrar" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
+                      <Component id="btCancelar" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="labelLogin" min="-2" pref="33" max="-2" attributes="0"/>
@@ -346,7 +346,7 @@
             <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jtNombres">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b7" green="b7" red="b7" type="rgb"/>
@@ -358,8 +358,11 @@
               <Color blue="1" green="1" red="1" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNombresKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField2">
+        <Component class="javax.swing.JTextField" name="jtEmail">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b7" green="b7" red="b7" type="rgb"/>
@@ -371,8 +374,11 @@
               <Color blue="1" green="1" red="1" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtEmailKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="jtTelefono">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b7" green="b7" red="b7" type="rgb"/>
@@ -384,8 +390,11 @@
               <Color blue="1" green="1" red="1" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtTelefonoKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="jtApellidos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b7" green="b7" red="b7" type="rgb"/>
@@ -397,8 +406,12 @@
               <Color blue="1" green="1" red="1" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtApellidosActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtApellidosKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="jtContrase&#xf1;a">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b7" green="b7" red="b7" type="rgb"/>
@@ -410,8 +423,11 @@
               <Color blue="1" green="1" red="1" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtContrase&#xf1;aKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="jtDireccion">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="b7" green="b7" red="b7" type="rgb"/>
@@ -423,8 +439,11 @@
               <Color blue="1" green="1" red="1" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtDireccionKeyTyped"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btRegistrar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="67" green="c3" red="ff" type="rgb"/>
@@ -432,10 +451,11 @@
             <Property name="text" type="java.lang.String" value="Registrarse"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btRegistrarMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRegistrarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="btCancelar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="42" green="42" red="ff" type="rgb"/>

@@ -7,6 +7,7 @@ package Vistas;
 
 import java.util.Locale;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,14 +44,14 @@ public class Registro extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jtNombres = new javax.swing.JTextField();
+        jtEmail = new javax.swing.JTextField();
+        jtTelefono = new javax.swing.JTextField();
+        jtApellidos = new javax.swing.JTextField();
+        jtContraseña = new javax.swing.JTextField();
+        jtDireccion = new javax.swing.JTextField();
+        btRegistrar = new javax.swing.JButton();
+        btCancelar = new javax.swing.JButton();
         labelLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,40 +151,80 @@ public class Registro extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Contraseña:");
 
-        jTextField1.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField1.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(1, 1, 1));
-
-        jTextField2.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField2.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(1, 1, 1));
-
-        jTextField3.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField3.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(1, 1, 1));
-
-        jTextField4.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField4.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(1, 1, 1));
-
-        jTextField5.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField5.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(1, 1, 1));
-
-        jTextField6.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField6.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(1, 1, 1));
-
-        jButton1.setBackground(new java.awt.Color(255, 195, 103));
-        jButton1.setText("Registrarse");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jtNombres.setBackground(new java.awt.Color(183, 183, 183));
+        jtNombres.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtNombres.setForeground(new java.awt.Color(1, 1, 1));
+        jtNombres.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombresKeyTyped(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 66, 66));
-        jButton2.setText("Cancelar");
+        jtEmail.setBackground(new java.awt.Color(183, 183, 183));
+        jtEmail.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtEmail.setForeground(new java.awt.Color(1, 1, 1));
+        jtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtEmailKeyTyped(evt);
+            }
+        });
+
+        jtTelefono.setBackground(new java.awt.Color(183, 183, 183));
+        jtTelefono.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtTelefono.setForeground(new java.awt.Color(1, 1, 1));
+        jtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtTelefonoKeyTyped(evt);
+            }
+        });
+
+        jtApellidos.setBackground(new java.awt.Color(183, 183, 183));
+        jtApellidos.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtApellidos.setForeground(new java.awt.Color(1, 1, 1));
+        jtApellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtApellidosActionPerformed(evt);
+            }
+        });
+        jtApellidos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtApellidosKeyTyped(evt);
+            }
+        });
+
+        jtContraseña.setBackground(new java.awt.Color(183, 183, 183));
+        jtContraseña.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtContraseña.setForeground(new java.awt.Color(1, 1, 1));
+        jtContraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtContraseñaKeyTyped(evt);
+            }
+        });
+
+        jtDireccion.setBackground(new java.awt.Color(183, 183, 183));
+        jtDireccion.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtDireccion.setForeground(new java.awt.Color(1, 1, 1));
+        jtDireccion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtDireccionKeyTyped(evt);
+            }
+        });
+
+        btRegistrar.setBackground(new java.awt.Color(255, 195, 103));
+        btRegistrar.setText("Registrarse");
+        btRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btRegistrarMouseClicked(evt);
+            }
+        });
+        btRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarActionPerformed(evt);
+            }
+        });
+
+        btCancelar.setBackground(new java.awt.Color(255, 66, 66));
+        btCancelar.setText("Cancelar");
 
         labelLogin.setBackground(new java.awt.Color(254, 254, 254));
         labelLogin.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -207,15 +248,15 @@ public class Registro extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(41, 41, 41)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,11 +264,11 @@ public class Registro extends javax.swing.JFrame {
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                                .addComponent(jTextField5)
-                                .addComponent(jTextField6))))
+                                .addComponent(jtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                                .addComponent(jtContraseña)
+                                .addComponent(jtDireccion))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(212, 212, 212)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -237,7 +278,7 @@ public class Registro extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(164, 164, 164))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(99, 99, 99))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(labelLogin)
@@ -251,31 +292,31 @@ public class Registro extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(labelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
@@ -299,9 +340,9 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarActionPerformed
+        
+    }//GEN-LAST:event_btRegistrarActionPerformed
 
     private void labelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelLoginMouseClicked
         Login login = new Login();
@@ -320,6 +361,96 @@ public class Registro extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_labelminusMouseClicked
 
+    private void jtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtApellidosActionPerformed
+
+    private void jtNombresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombresKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+        }else{
+            evt.consume();
+        }
+        
+        if (jtNombres.getText().length()== 30) 
+            evt.consume(); 
+    }//GEN-LAST:event_jtNombresKeyTyped
+
+    private void jtApellidosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidosKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+        }else{
+            evt.consume();
+        }
+        
+        if (jtApellidos.getText().length()== 30) 
+            evt.consume(); 
+    }//GEN-LAST:event_jtApellidosKeyTyped
+
+    private void jtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+            evt.consume();
+        }else{
+            
+        }
+        
+        if (jtTelefono.getText().length()== 10) 
+            evt.consume();
+    }//GEN-LAST:event_jtTelefonoKeyTyped
+
+    private void jtEmailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtEmailKeyTyped
+        // TODO add your handling code here:
+        if (jtApellidos.getText().length()== 150) 
+            evt.consume(); 
+    }//GEN-LAST:event_jtEmailKeyTyped
+
+    private void jtContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtContraseñaKeyTyped
+        // TODO add your handling code here:
+        if (jtContraseña.getText().length()== 30) 
+            evt.consume();
+    }//GEN-LAST:event_jtContraseñaKeyTyped
+
+    private void jtDireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDireccionKeyTyped
+        // TODO add your handling code here:
+        if (jtDireccion.getText().length()== 30) 
+            evt.consume();
+    }//GEN-LAST:event_jtDireccionKeyTyped
+
+    private void btRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btRegistrarMouseClicked
+        String nombre = jtNombres.getText();
+        if(nombre.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre valido");
+        }
+        String apellido = jtApellidos.getText();
+        if(apellido.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese un apellido valido");
+        }
+        String telefono = jtTelefono.getText();
+        if(telefono.isEmpty() | telefono.length()<10){
+            JOptionPane.showMessageDialog(null, "Ingrese un numero de telefono valido");
+            jtTelefono.setText("");
+        }
+        String email = jtEmail.getText();
+        if(email.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese una direccion de correo valida");
+        }
+        String password = jtContraseña.getText();
+        if(password.isEmpty() | password.length()<8){
+            JOptionPane.showMessageDialog(null, "Ingrese una contraseña de mas de 8 caracteres");
+        }
+        String direccion = jtDireccion.getText();
+        if(direccion.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese una direccion de domicilio valida");
+        }
+        
+        
+    }//GEN-LAST:event_btRegistrarMouseClicked
+
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -356,8 +487,8 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btCancelar;
+    private javax.swing.JButton btRegistrar;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
@@ -368,12 +499,12 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jtApellidos;
+    private javax.swing.JTextField jtContraseña;
+    private javax.swing.JTextField jtDireccion;
+    private javax.swing.JTextField jtEmail;
+    private javax.swing.JTextField jtNombres;
+    private javax.swing.JTextField jtTelefono;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelexit;
     private javax.swing.JLabel labelminus;
