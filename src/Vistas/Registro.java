@@ -8,6 +8,7 @@ package Vistas;
 import java.util.Locale;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import tallerrestaurante.ControlBD;
 
 /**
  *
@@ -16,12 +17,16 @@ import javax.swing.JOptionPane;
 public class Registro extends javax.swing.JFrame {
 
     /**
-     * Creates new form Registro
-     */
+     * Creates new form Registro 
+     */ 
+    
+    ControlBD control = new ControlBD();   
     public Registro() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
+                                                                                                                                                     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -446,7 +451,18 @@ public class Registro extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingrese una direccion de domicilio valida");
         }
         
-        
+        String respuesta = control.registroCliente(nombre,apellido,email,telefono,password,direccion);
+        if(respuesta == null){
+             Login login = new Login();
+            login.setVisible(true);
+            login.pack();
+            login.setLocationRelativeTo(null);
+            login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+            
+        }else{
+            JOptionPane.showMessageDialog(null, respuesta);
+        }
     }//GEN-LAST:event_btRegistrarMouseClicked
 
     

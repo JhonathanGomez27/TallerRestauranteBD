@@ -37,6 +37,7 @@ public class Cliente {
             if(res.next()){
                 return "El email ya existe, intenta de nuevo";
             }
+            
             sql = "INSERT INTO cliente VALUES (?,?,?,?,?)";
             statement = connection.prepareStatement(sql);
             statement.setString(1, this.nombres);

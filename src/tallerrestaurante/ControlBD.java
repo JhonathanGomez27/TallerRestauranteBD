@@ -21,7 +21,7 @@ public class ControlBD {
     private void conexionBD(){
         try
         {
-        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         }
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex)
         {

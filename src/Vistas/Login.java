@@ -37,8 +37,8 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jtEmail = new javax.swing.JTextField();
+        jtContraseña = new javax.swing.JTextField();
         btLogin = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         labelRegistro = new javax.swing.JLabel();
@@ -116,13 +116,13 @@ public class Login extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Contraseña:");
 
-        jTextField2.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField2.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(1, 1, 1));
+        jtEmail.setBackground(new java.awt.Color(183, 183, 183));
+        jtEmail.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtEmail.setForeground(new java.awt.Color(1, 1, 1));
 
-        jTextField5.setBackground(new java.awt.Color(183, 183, 183));
-        jTextField5.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(1, 1, 1));
+        jtContraseña.setBackground(new java.awt.Color(183, 183, 183));
+        jtContraseña.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
+        jtContraseña.setForeground(new java.awt.Color(1, 1, 1));
 
         btLogin.setBackground(new java.awt.Color(255, 195, 103));
         btLogin.setText("Iniciar Sesion");
@@ -134,6 +134,11 @@ public class Login extends javax.swing.JFrame {
 
         btCancelar.setBackground(new java.awt.Color(255, 66, 66));
         btCancelar.setText("Cancelar");
+        btCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btCancelarMouseClicked(evt);
+            }
+        });
 
         labelRegistro.setBackground(new java.awt.Color(254, 254, 254));
         labelRegistro.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -164,8 +169,8 @@ public class Login extends javax.swing.JFrame {
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                     .addGap(146, 146, 146)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,11 +190,11 @@ public class Login extends javax.swing.JFrame {
                 .addGap(65, 65, 65)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,6 +243,12 @@ public class Login extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel3MouseClicked
 
+    private void btCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseClicked
+        // TODO add your handling code here:
+        jtEmail.setText("");
+        jtContraseña.setText("");
+    }//GEN-LAST:event_btCancelarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -283,8 +294,8 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jtContraseña;
+    private javax.swing.JTextField jtEmail;
     private javax.swing.JLabel labelExit;
     private javax.swing.JLabel labelRegistro;
     // End of variables declaration//GEN-END:variables
