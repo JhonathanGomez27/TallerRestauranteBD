@@ -70,6 +70,6 @@ public class ControlBD {
     }
     
 //    public String registroCliente(String nombres, String apellidos, String email, String telefono, String contraseña, String direccion){
-//        ArrayList<String>
+//        ArrayList<String> dir = new ArrayList<>();
 //    }
 }
