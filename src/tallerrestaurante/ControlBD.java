@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ubuntu
@@ -13,6 +14,7 @@ public class ControlBD {
     private Cliente cliente;
     private Producto producto;
     private Connection connection;
+    
 
     public ControlBD() {
         conexionBD();
@@ -85,6 +87,34 @@ public class ControlBD {
         
         Domiciliario domiciliario = new Domiciliario(cc,nombres,apellidos,email,telefono,direccion);
         return domiciliario.registroDomiciliario(connection);
+    }
+    
+    public ArrayList<Domiciliario> listadoDomi(){
+        
+        ArrayList<Domiciliario> listaDomiciliarios = new ArrayList<>();
+        
+        try{
+            String sql = "SELECT * FROM domiciliario";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet res = statement.executeQuery();
+            
+            while(res.next()){
+                String cc = res.getString("cc");
+                String nombres = res.getString("nombres");
+                String apellidos = res.getString("apellidos");
+                String email = res.getString("email");
+                String telefono = res.getString("telefono");
+                String direccion = res.getString("direccion");
+                
+                Domiciliario domiciliario = new Domiciliario(cc,nombres,apellidos,email,telefono,direccion);
+                listaDomiciliarios.add(domiciliario);
+            }
+            
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudieron enviar los datos para la validación en la BD");
+        }
+        
+        return listaDomiciliarios;
     }
     
     public void logout(){

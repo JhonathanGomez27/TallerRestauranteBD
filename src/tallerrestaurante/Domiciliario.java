@@ -65,7 +65,7 @@ public class Domiciliario {
             statement.setString(3, this.apellidos);
             statement.setString(4, this.email);
             statement.setString(5, this.telefono);
-            statement.setString(2, this.direccion);
+            statement.setString(6, this.direccion);
             if(statement.executeUpdate() != 1){
                 throw new SQLException();
             }

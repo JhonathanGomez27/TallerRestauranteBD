@@ -5,8 +5,10 @@
  */
 package Vistas;
 
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import tallerrestaurante.ControlBD;
 import tallerrestaurante.Domiciliario;
 
@@ -16,6 +18,7 @@ import tallerrestaurante.Domiciliario;
  */
 public class inicioRestaurante extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form inicioRestaurante
      */
@@ -23,6 +26,8 @@ public class inicioRestaurante extends javax.swing.JFrame {
     public inicioRestaurante(ControlBD control) {
         initComponents();
         this.setLocationRelativeTo(null);
+        listarDom();
+        
     }
 
     /**
@@ -70,6 +75,8 @@ public class inicioRestaurante extends javax.swing.JFrame {
         btnCancelarDOmi = new javax.swing.JButton();
         btnAgregarDomi = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtTablaDomiciliarios = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,6 +137,11 @@ public class inicioRestaurante extends javax.swing.JFrame {
 
         tableProductos.setBackground(new java.awt.Color(41, 38, 43));
         tableProductos.setToolTipText("");
+        tableProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableProductosMouseClicked(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(41, 38, 43));
 
@@ -239,7 +251,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -307,7 +319,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+            .addGap(0, 476, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -487,7 +499,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
                         .addComponent(btnCancelarDOmi, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAgregarDomi, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -525,15 +537,32 @@ public class inicioRestaurante extends javax.swing.JFrame {
 
         tableProductos.addTab("Agregar Domiciliarios", jPanel4);
 
+        jtTablaDomiciliarios.setBackground(new java.awt.Color(205, 205, 205));
+        jtTablaDomiciliarios.setForeground(new java.awt.Color(5, 5, 5));
+        jtTablaDomiciliarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jtTablaDomiciliarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jtTablaDomiciliariosMousePressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtTablaDomiciliarios);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
 
         tableProductos.addTab("Domiciliarios", jPanel6);
@@ -542,7 +571,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+            .addGap(0, 476, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -766,13 +795,19 @@ public class inicioRestaurante extends javax.swing.JFrame {
         if(cc.isEmpty()){
             JOptionPane.showMessageDialog(null,"La cc esta vacia");
         }
-        
+    
         String respuesta = control.registroDomiciliario(cc,nombre,apellidos,email,telefono,direccion);
         if(respuesta == null){
         JOptionPane.showMessageDialog(null, "Domiciliario registrado");
         }else{
         JOptionPane.showMessageDialog(null, respuesta);
         } 
+        jtNomDomi.setText("");
+        jtApeDomi.setText("");
+        jtEmailDomi.setText("");
+        jtTelDomi.setText("");
+        jtDirDomi.setText("");
+        jtccDom.setText("");
     }//GEN-LAST:event_btnAgregarDomiMouseClicked
 
     private void btnAgregarDomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDomiActionPerformed
@@ -788,6 +823,41 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jtTiempoPrep.setText("");
     }//GEN-LAST:event_btnCancelarprodMouseClicked
 
+    private void tableProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProductosMouseClicked
+        
+    }//GEN-LAST:event_tableProductosMouseClicked
+
+    private void jtTablaDomiciliariosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTablaDomiciliariosMousePressed
+       
+    }//GEN-LAST:event_jtTablaDomiciliariosMousePressed
+
+    public ArrayList<Domiciliario> listaDomiciliarios(){
+        ControlBD control = new ControlBD();
+        ArrayList<Domiciliario> listaDomiciliarios = new ArrayList<>();
+        
+        listaDomiciliarios = control.listadoDomi();
+        
+        return listaDomiciliarios;
+    }
+   
+    public void listarDom(){
+        ArrayList<Domiciliario> listadoDomiciliarios;
+        listadoDomiciliarios = listaDomiciliarios();
+        System.out.println("listado: "+listadoDomiciliarios.get(0).getNombres());
+        String [][]dom = new String[listadoDomiciliarios.size()][6];
+        for(int i=0;i<listadoDomiciliarios.size();i++){
+            
+            dom[i][0] = listadoDomiciliarios.get(i).getCc();
+            dom[i][1] = listadoDomiciliarios.get(i).getNombres();
+            dom[i][2] = listadoDomiciliarios.get(i).getApellidos();
+            dom[i][3] = listadoDomiciliarios.get(i).getEmail();
+            dom[i][4] = listadoDomiciliarios.get(i).getTelefono();
+            dom[i][5] = listadoDomiciliarios.get(i).getDireccion();
+        }
+        jtTablaDomiciliarios.setModel(new javax.swing.table.DefaultTableModel 
+            (dom,new String[]{"CC","Nombres","Apellidos","email","Telefono","Direccion"}));
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -814,6 +884,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jtApeDomi;
     private javax.swing.JTextField jtDescripcion;
     private javax.swing.JTextField jtDirDomi;
@@ -822,6 +893,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JTextField jtNomDomi;
     private javax.swing.JTextField jtNombreProducto;
     private javax.swing.JTextField jtPrecio;
+    private javax.swing.JTable jtTablaDomiciliarios;
     private javax.swing.JTextField jtTelDomi;
     private javax.swing.JTextField jtTiempoPrep;
     private javax.swing.JTextField jtccDom;
