@@ -27,10 +27,6 @@ public class Cliente {
         this.password = password;
         this.direccion = direccion;
     }
-    
-    public Cliente(){
-        
-    }
 
     public String registroClient(Connection connection){
         try{

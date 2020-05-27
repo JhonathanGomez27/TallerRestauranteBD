@@ -74,6 +74,13 @@ public class ControlBD {
         
     }
     
+    public String registroProducto(String id, String nombre, String descripcion, Double telefono, Integer tiempo){
+        ArrayList<String> prod = new ArrayList<>();
+        Restaurante producto = new Restaurante(id,nombre,descripcion,telefono,tiempo);
+        return producto.registroProduct(this.connection);
+        
+    }
+    
     public void logout(){
         this.cliente=null;
     }

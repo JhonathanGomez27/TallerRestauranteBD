@@ -272,15 +272,28 @@ public class Login extends javax.swing.JFrame {
         if(password.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese una contraseña");
         }
-        String respuesta = control.validarDatosLogin(email, password);
-        if(respuesta == null){
-        InicioCliente iniCli = new InicioCliente(control);
-        iniCli.setVisible(true);
-        iniCli.pack();
-        iniCli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
+        if(email.contains("adrest") & password.contains("rest123")){
+            String respuesta = control.validarDatosLogin(email, password);
+            if(respuesta == null){
+            inicioRestaurante iniRest = new inicioRestaurante(control);
+            iniRest.setVisible(true);
+            iniRest.pack();
+            iniRest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+            }else{
+            JOptionPane.showMessageDialog(null, respuesta);
+            }
         }else{
-        JOptionPane.showMessageDialog(null, respuesta);
+            String respuesta = control.validarDatosLogin(email, password);
+            if(respuesta == null){
+            InicioCliente iniCli = new InicioCliente(control);
+            iniCli.setVisible(true);
+            iniCli.pack();
+            iniCli.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+            }else{
+            JOptionPane.showMessageDialog(null, respuesta);
+            }
         } 
     }//GEN-LAST:event_btLoginMouseClicked
 

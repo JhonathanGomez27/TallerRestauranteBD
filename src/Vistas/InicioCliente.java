@@ -380,8 +380,7 @@ public class InicioCliente extends javax.swing.JFrame {
         jtNombreCliente.setText(control.getNombres());
         jtApellidosCliente.setText(control.getApellidos());
         jtEmailCliente.setText(control.getEmail());
-        jtTelefonoCliente.setText(control.getTelefono());
-        
+        jtTelefonoCliente.setText(control.getTelefono());  
         jtEmailCliente.setEditable(false);
     }
     /**
