@@ -50,9 +50,11 @@ public class ControlBD {
             statement.setString(1, email);
             statement.setString(2, contraseña);
             ResultSet res = statement.executeQuery();
+            
             if(!res.next()){
                 return "Datos erróneos, intente de nuevo.";
             }
+            
             String nombres = res.getString("nombres");
             String apellidos = res.getString("apellidos");
             String telefono = res.getString("telefono");
