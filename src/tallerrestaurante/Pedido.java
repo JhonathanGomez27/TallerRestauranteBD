@@ -5,6 +5,12 @@
  */
 package tallerrestaurante;
 
+import java.sql.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.time.*;
+import java.time.format.*;
+
 /**
  *
  * @author jhonathan
@@ -18,6 +24,8 @@ public class Pedido {
     private String fechaCreacion;
     private String fechaEntrega;
     private String tiempoEntrega;
+    private Cliente client;
+    private Domiciliario domi;
 
     public Pedido(int id, String cliente, String domiciliario, double costo, String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega) {
         this.id = id;
@@ -30,6 +38,26 @@ public class Pedido {
         this.tiempoEntrega = tiempoEntrega;
     }
 
+    public String registroPed(Connection connection){
+        try{
+            String sql = "INSERT INTO pedido (cliente, domiciliario, costo, estado, fechaCreacion, tiempoEntrega) VALUES (?,?,?,?,?,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, client.getEmail());
+            statement.setString(2, domi.getCc());
+            statement.setDouble(3, this.costo);
+            statement.setString(4, this.estado);
+            statement.setString(5, "NOW()");
+            statement.setInt(6, Integer.parseInt(this.tiempoEntrega));
+            if(statement.executeUpdate() != 1){
+                throw new SQLException();
+            }
+            return null;
+        }
+        catch(SQLException ex){
+            return "No se pudieron enviar los datos para el registro en la BD";
+        }
+    }
+    
     public int getId() {
         return id;
     }

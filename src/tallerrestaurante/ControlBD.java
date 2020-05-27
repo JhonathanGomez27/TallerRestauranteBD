@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 public class ControlBD {
     
     private Cliente cliente;
+    private Pedido pedido;
     private Producto producto;
     private Connection connection;
 
@@ -74,11 +75,18 @@ public class ControlBD {
         
     }
     
+    public String registroPedido(int id, String cliente, String domiciliario, double costo, 
+            String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega){
+        ArrayList<String> prod = new ArrayList<>();
+        Pedido pedido = new Pedido(id,cliente,domiciliario,costo,estado,fechaCreacion,fechaEntrega,tiempoEntrega);
+        return pedido.registroPed(this.connection);
+    }
+
     public String registroProducto(String id, String nombre, String descripcion, Double telefono, Integer tiempo){
         ArrayList<String> prod = new ArrayList<>();
         Restaurante producto = new Restaurante(id,nombre,descripcion,telefono,tiempo);
         return producto.registroProduct(this.connection);
-    }    
+    } 
     
     public String registroDomiciliario(String cc,String nombres,String apellidos,
                                        String email,String telefono,String direccion){
