@@ -66,12 +66,26 @@ public class ControlBD {
         }
     }
     
-    public String registroCliente(String nombres, String apellidos, String email, String telefono, String password, String direccion){
-        ArrayList<String> reg = new ArrayList<>();
-        reg.add(direccion);
+    public String registroCliente(String nombres, String apellidos, String email, 
+                                String telefono, String password, String direccion){
+    
         Cliente client = new Cliente(nombres,apellidos,email,telefono,password,direccion);
         return client.registroClient(this.connection);
         
+    }
+    
+    
+    public String registroProducto(String id,String nombre,String descripcion,
+                                    double precio,int tiempoPreparacion){
+        Producto product = new Producto(id,nombre,descripcion,precio,tiempoPreparacion);
+        return product.registroProducto(this.connection);
+    }
+    
+    public String registroDomiciliario(String cc,String nombres,String apellidos,
+                                       String email,String telefono,String direccion){
+        
+        Domiciliario domiciliario = new Domiciliario(cc,nombres,apellidos,email,telefono,direccion);
+        return domiciliario.registroDomiciliario(connection);
     }
     
     public void logout(){

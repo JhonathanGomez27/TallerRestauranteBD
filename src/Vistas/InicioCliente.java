@@ -44,7 +44,7 @@ public class InicioCliente extends javax.swing.JFrame {
         tableProductos = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        lProdcutos = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -126,15 +126,17 @@ public class InicioCliente extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(41, 38, 43));
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        lProdcutos.setBackground(new java.awt.Color(95, 95, 95));
+        lProdcutos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(lProdcutos);
 
         jButton2.setText("Relizar Pedido");
 
+        jTextArea1.setBackground(new java.awt.Color(74, 74, 74));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
@@ -166,7 +168,7 @@ public class InicioCliente extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 21, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
@@ -450,7 +452,6 @@ public class InicioCliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -465,6 +466,7 @@ public class InicioCliente extends javax.swing.JFrame {
     private javax.swing.JTextField jtEmailCliente;
     private javax.swing.JTextField jtNombreCliente;
     private javax.swing.JTextField jtTelefonoCliente;
+    private javax.swing.JList<String> lProdcutos;
     private javax.swing.JLabel labelExit;
     private javax.swing.JTabbedPane tableProductos;
     // End of variables declaration//GEN-END:variables
