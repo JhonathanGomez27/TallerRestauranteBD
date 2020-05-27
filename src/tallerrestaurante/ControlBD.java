@@ -69,6 +69,7 @@ public class ControlBD {
         reg.add(direccion);
         Cliente client = new Cliente(nombres,apellidos,email,telefono,password,direccion);
         return client.registroClient(this.connection);
+        
     }
     
     public void logout(){

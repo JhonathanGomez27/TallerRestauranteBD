@@ -6,6 +6,8 @@
 package Vistas;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import tallerrestaurante.ControlBD;
 
 /**
  *
@@ -16,6 +18,7 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    ControlBD control = new ControlBD();
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -43,6 +46,7 @@ public class Login extends javax.swing.JFrame {
         btLogin = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
         labelRegistro = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -127,6 +131,11 @@ public class Login extends javax.swing.JFrame {
 
         btLogin.setBackground(new java.awt.Color(255, 195, 103));
         btLogin.setText("Iniciar Sesion");
+        btLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btLoginMouseClicked(evt);
+            }
+        });
         btLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLoginActionPerformed(evt);
@@ -138,6 +147,11 @@ public class Login extends javax.swing.JFrame {
         btCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btCancelarMouseClicked(evt);
+            }
+        });
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
             }
         });
 
@@ -152,14 +166,22 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(141, 141, 141))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -182,6 +204,15 @@ public class Login extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addComponent(labelRegistro)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(141, 141, 141))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +231,9 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addGap(3, 3, 3)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
@@ -250,6 +283,45 @@ public class Login extends javax.swing.JFrame {
         jtContraseña.setText("");
     }//GEN-LAST:event_btCancelarMouseClicked
 
+    private void btLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btLoginMouseClicked
+        String email = jtEmail.getText();
+        if(email.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese una direccion de correo");
+        }
+        String password = jtContraseña.getText();
+        if(password.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Ingrese una contraseña");
+        }
+        String respuesta = control.validarDatosLogin(email, password);
+        if(respuesta == null){
+        Perfil jfPerfil = new Perfil();
+        jfPerfil.setVisible(true);
+        jfPerfil.pack();
+        jfPerfil.setLocationRelativeTo(null);
+        jfPerfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+        }else{
+        JOptionPane.showMessageDialog(null, respuesta);
+        } 
+    }//GEN-LAST:event_btLoginMouseClicked
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btCancelarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        Perfil jfPerfil = new Perfil();
+        jfPerfil.setVisible(true);
+        jfPerfil.pack();
+        jfPerfil.setLocationRelativeTo(null);
+        jfPerfil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_jButton1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -288,6 +360,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btLogin;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

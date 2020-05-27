@@ -230,6 +230,11 @@ public class Registro extends javax.swing.JFrame {
 
         btCancelar.setBackground(new java.awt.Color(255, 66, 66));
         btCancelar.setText("Cancelar");
+        btCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btCancelarMouseClicked(evt);
+            }
+        });
 
         labelLogin.setBackground(new java.awt.Color(254, 254, 254));
         labelLogin.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
@@ -428,10 +433,12 @@ public class Registro extends javax.swing.JFrame {
         String nombre = jtNombres.getText();
         if(nombre.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese un nombre valido");
+            jtNombres.setText("");
         }
         String apellido = jtApellidos.getText();
         if(apellido.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese un apellido valido");
+            jtApellidos.setText("");
         }
         String telefono = jtTelefono.getText();
         if(telefono.isEmpty() | telefono.length()<10){
@@ -441,29 +448,40 @@ public class Registro extends javax.swing.JFrame {
         String email = jtEmail.getText();
         if(email.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese una direccion de correo valida");
+            jtEmail.setText("");
         }
         String password = jtContraseña.getText();
         if(password.isEmpty() | password.length()<8){
             JOptionPane.showMessageDialog(null, "Ingrese una contraseña de mas de 8 caracteres");
+            jtContraseña.setText("");
         }
         String direccion = jtDireccion.getText();
         if(direccion.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese una direccion de domicilio valida");
+            jtDireccion.setText("");
         }
-        
+      
         String respuesta = control.registroCliente(nombre,apellido,email,telefono,password,direccion);
         if(respuesta == null){
-             Login login = new Login();
-            login.setVisible(true);
-            login.pack();
-            login.setLocationRelativeTo(null);
-            login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            this.dispose();
-            
+        Login login = new Login();
+        login.setVisible(true);
+        login.pack();
+        login.setLocationRelativeTo(null);
+        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.dispose();
         }else{
-            JOptionPane.showMessageDialog(null, respuesta);
-        }
+        JOptionPane.showMessageDialog(null, respuesta);
+        } 
     }//GEN-LAST:event_btRegistrarMouseClicked
+
+    private void btCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseClicked
+        jtApellidos.setText("");
+        jtNombres.setText("");
+        jtEmail.setText("");
+        jtContraseña.setText("");
+        jtTelefono.setText("");
+        jtDireccion.setText("");
+    }//GEN-LAST:event_btCancelarMouseClicked
 
     
     
