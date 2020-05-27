@@ -27,7 +27,7 @@ public class Cliente {
         this.password = password;
         this.direccion = direccion;
     }
-    
+
     public String registroClient(Connection connection){
         try{
             String sql = "SELECT * From cliente WHERE email = ?";
@@ -36,6 +36,14 @@ public class Cliente {
             ResultSet res = statement.executeQuery();
             if(res.next()){
                 return "El email ya existe, intenta de nuevo";
+            }
+            
+            sql = "SELECT * From cliente WHERE telefono = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, this.telefono);
+            res = statement.executeQuery();
+            if(res.next()){
+                return "El telefono ya existe, intenta de nuevo";
             }
             
             sql = "INSERT INTO cliente VALUES (?,?,?,?,?)";
