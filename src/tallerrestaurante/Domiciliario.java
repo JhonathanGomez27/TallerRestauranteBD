@@ -5,6 +5,11 @@
  */
 package tallerrestaurante;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author jhonathan
@@ -25,6 +30,51 @@ public class Domiciliario {
         this.email = email;
         this.telefono = telefono;
         this.direccion = direccion;
+    }
+    
+    public String registroDomiciliario(Connection connection){
+        try{
+            String sql = "SELECT * From domiciliario WHERE email = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, this.email);
+            ResultSet res = statement.executeQuery();
+            if(res.next()){
+                return "El email ya existe, intenta de nuevo";
+            }
+            
+            sql = "SELECT * From domiciliario WHERE cc = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, this.cc);
+            res = statement.executeQuery();
+            if(res.next()){
+                return "La CC ya existe, intenta de nuevo";
+            }
+            
+            sql = "SELECT * From domiciliario WHERE telefono = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, this.telefono);
+            res = statement.executeQuery();
+            if(res.next()){
+                return "El telefono ya existe, intenta de nuevo";
+            }
+            
+            sql = "INSERT INTO domiciliario VALUES (?,?,?,?,?,?)";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, this.cc);
+            statement.setString(2, this.nombres);
+            statement.setString(3, this.apellidos);
+            statement.setString(4, this.email);
+            statement.setString(5, this.telefono);
+            statement.setString(2, this.direccion);
+            if(statement.executeUpdate() != 1){
+                throw new SQLException();
+            }
+            
+            return null;
+        }
+        catch(SQLException ex){
+            return "No se pudieron enviar los datos para el registro en la BD";
+        }
     }
 
     public String getCc() {

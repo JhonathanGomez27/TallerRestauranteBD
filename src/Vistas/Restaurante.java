@@ -6,25 +6,18 @@
 package Vistas;
 
 import javax.swing.JFrame;
-import tallerrestaurante.Cliente;
-import tallerrestaurante.ControlBD;
 
 /**
  *
  * @author jhonathan
  */
-public class InicioCliente extends javax.swing.JFrame {
+public class Restaurante extends javax.swing.JFrame {
 
-    private ControlBD control = new ControlBD();
-    
     /**
-     * Creates new form InicioCliente
+     * Creates new form Restaurante
      */
-    public InicioCliente(ControlBD control) {
+    public Restaurante() {
         initComponents();
-        this.control = control;
-        this.setLocationRelativeTo(null);
-        perfil();
     }
 
     /**
@@ -53,19 +46,8 @@ public class InicioCliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jtApellidosCliente = new javax.swing.JTextField();
-        jtNombreCliente = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jtTelefonoCliente = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jtEmailCliente = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(41, 38, 43));
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(250, 147, 1));
@@ -102,7 +84,7 @@ public class InicioCliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(26, 26, 26)
                 .addComponent(labelExit)
@@ -221,127 +203,6 @@ public class InicioCliente extends javax.swing.JFrame {
 
         tableProductos.addTab("Pedidos", jPanel4);
 
-        jPanel5.setBackground(new java.awt.Color(41, 38, 43));
-
-        jLabel6.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Nombres:");
-
-        jLabel5.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel5.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Apellidos:");
-
-        jtApellidosCliente.setBackground(new java.awt.Color(183, 183, 183));
-        jtApellidosCliente.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jtApellidosCliente.setForeground(new java.awt.Color(1, 1, 1));
-        jtApellidosCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtApellidosClienteKeyTyped(evt);
-            }
-        });
-
-        jtNombreCliente.setBackground(new java.awt.Color(183, 183, 183));
-        jtNombreCliente.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jtNombreCliente.setForeground(new java.awt.Color(1, 1, 1));
-        jtNombreCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtNombreClienteKeyTyped(evt);
-            }
-        });
-
-        jLabel7.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel7.setText("Telefono:");
-
-        jtTelefonoCliente.setBackground(new java.awt.Color(183, 183, 183));
-        jtTelefonoCliente.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jtTelefonoCliente.setForeground(new java.awt.Color(1, 1, 1));
-        jtTelefonoCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtTelefonoClienteKeyTyped(evt);
-            }
-        });
-
-        jLabel9.setBackground(new java.awt.Color(254, 254, 254));
-        jLabel9.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(254, 254, 254));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Email:");
-
-        jtEmailCliente.setBackground(new java.awt.Color(183, 183, 183));
-        jtEmailCliente.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
-        jtEmailCliente.setForeground(new java.awt.Color(1, 1, 1));
-
-        jButton1.setBackground(new java.awt.Color(253, 189, 100));
-        jButton1.setText("Guardar Cambios");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jtApellidosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtEmailCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtTelefonoCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(24, 24, 24))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtApellidosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtEmailCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(76, 76, 76)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(110, Short.MAX_VALUE))
-        );
-
-        tableProductos.addTab("Perfil", jPanel5);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -349,7 +210,7 @@ public class InicioCliente extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(tableProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -370,9 +231,8 @@ public class InicioCliente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -386,85 +246,56 @@ public class InicioCliente extends javax.swing.JFrame {
         this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jtNombreClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreClienteKeyTyped
-        char c = evt.getKeyChar();
-        if (Character.isDigit(c) == false) {
-        }else{
-            evt.consume();
-        }
-        
-        if (jtNombreCliente.getText().length()== 30) 
-            evt.consume(); 
-    }//GEN-LAST:event_jtNombreClienteKeyTyped
-
-    private void jtApellidosClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApellidosClienteKeyTyped
-        char c = evt.getKeyChar();
-        if (Character.isDigit(c) == false) {
-        }else{
-            evt.consume();
-        }
-        
-        if (jtApellidosCliente.getText().length()== 30) 
-            evt.consume(); 
-    }//GEN-LAST:event_jtApellidosClienteKeyTyped
-
-    private void jtTelefonoClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoClienteKeyTyped
-         char c = evt.getKeyChar();
-        if (Character.isDigit(c) == false) {
-            evt.consume();
-        }else{
-            
-        }
-        
-        if (jtTelefonoCliente.getText().length()== 10) 
-            evt.consume();
-    }//GEN-LAST:event_jtTelefonoClienteKeyTyped
-
-    
-    public void perfil(){
-        jtNombreCliente.setText(control.getNombres());
-        jtApellidosCliente.setText(control.getApellidos());
-        jtEmailCliente.setText(control.getEmail());
-        jtTelefonoCliente.setText(control.getTelefono());  
-        jtEmailCliente.setEditable(false);
-    }
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Restaurante().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jtApellidosCliente;
-    private javax.swing.JTextField jtEmailCliente;
-    private javax.swing.JTextField jtNombreCliente;
-    private javax.swing.JTextField jtTelefonoCliente;
     private javax.swing.JList<String> lProdcutos;
     private javax.swing.JLabel labelExit;
     private javax.swing.JTabbedPane tableProductos;
