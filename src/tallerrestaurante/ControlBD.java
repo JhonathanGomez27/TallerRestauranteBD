@@ -2,8 +2,6 @@ package tallerrestaurante;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -150,6 +148,34 @@ public class ControlBD {
         }
         
         return listaDomiciliarios;
+    }
+    
+    public ArrayList<Cliente> listadoCliente(){
+        
+        ArrayList<Cliente> listaClientes = new ArrayList<>();
+        
+        try{
+            String sql = "SELECT * FROM cliente";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet res = statement.executeQuery();
+            
+            while(res.next()){
+                String nombres = res.getString("nombres");
+                String apellidos = res.getString("apellidos");
+                String email = res.getString("email");
+                String telefono = res.getString("telefono");
+                String password = res.getString("password");
+                String direccion = res.getString("direccion");
+                
+                Cliente client = new Cliente(nombres,apellidos,email,telefono,password,direccion);
+                listaClientes.add(client);
+            }
+            
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudieron enviar los datos para la validación en la BD");
+        }
+        
+        return listaClientes;
     }
     
     public void logout(){

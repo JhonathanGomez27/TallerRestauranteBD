@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import tallerrestaurante.Cliente;
 import tallerrestaurante.ControlBD;
 import tallerrestaurante.Domiciliario;
 import tallerrestaurante.Producto;
@@ -84,6 +85,8 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtTablaDomiciliarios = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jtTablaClientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -353,7 +356,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -545,7 +548,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
                         .addComponent(btnCancelarDOmi, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAgregarDomi, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -604,7 +607,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -613,15 +616,25 @@ public class inicioRestaurante extends javax.swing.JFrame {
 
         tableProductos.addTab("Domiciliarios", jPanel6);
 
+        jtTablaClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(jtTablaClientes);
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 456, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 464, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
         );
 
         tableProductos.addTab("Clientes", jPanel7);
@@ -906,7 +919,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private void tableProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProductosMouseClicked
         listarDom();
         listarProd();
-        
+        listarClient();
     }//GEN-LAST:event_tableProductosMouseClicked
 
     private void jtTablaDomiciliariosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTablaDomiciliariosMousePressed
@@ -926,7 +939,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jtPrecioKeyTyped
 
     private void tablaProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaProductosMouseClicked
-        
+
         ArrayList<Producto> productos = new ArrayList<>();
         productos = control.listaProdcutos();
         int indice = tablaProductos.getSelectedRow();
@@ -948,6 +961,13 @@ public class inicioRestaurante extends javax.swing.JFrame {
         ArrayList<Producto> productos = new ArrayList<>();
         productos = control.listaProdcutos();
         return productos;
+    }
+    
+    public ArrayList<Cliente> listaClientes(){
+        ControlBD control = new ControlBD();
+        ArrayList<Cliente> listaClientes = new ArrayList<>();
+        listaClientes = control.listadoCliente();
+        return listaClientes;
     }
     
     public void listarProd(){
@@ -981,6 +1001,25 @@ public class inicioRestaurante extends javax.swing.JFrame {
             (dom,new String[]{"CC","Nombres","Apellidos","email","Telefono","Direccion"}));
         
     }
+    
+    public void listarClient(){
+        ArrayList<Cliente> listaClientes;
+        listaClientes = listaClientes();
+        String [][]dom = new String[listaClientes.size()][6];
+        for(int i=0;i<listaClientes.size();i++){
+            
+            dom[i][0] = listaClientes.get(i).getNombres();
+            dom[i][1] = listaClientes.get(i).getApellidos();
+            dom[i][2] = listaClientes.get(i).getEmail();
+            dom[i][3] = listaClientes.get(i).getTelefono();
+            dom[i][4] = listaClientes.get(i).getPassword();
+            dom[i][5] = listaClientes.get(i).getDireccion();
+        }
+        jtTablaClientes.setModel(new javax.swing.table.DefaultTableModel 
+            (dom,new String[]{"Nombres","Apellidos","email","Telefono","Password","Direccion"}));
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1011,6 +1050,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField jtApeDomi;
     private javax.swing.JTextField jtDescripcion;
     private javax.swing.JTextField jtDirDomi;
@@ -1019,6 +1059,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JTextField jtNomDomi;
     private javax.swing.JTextField jtNombreProducto;
     private javax.swing.JTextField jtPrecio;
+    private javax.swing.JTable jtTablaClientes;
     private javax.swing.JTable jtTablaDomiciliarios;
     private javax.swing.JTextField jtTelDomi;
     private javax.swing.JTextField jtTiempoPrep;
