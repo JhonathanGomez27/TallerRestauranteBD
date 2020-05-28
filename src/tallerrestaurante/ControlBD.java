@@ -76,8 +76,8 @@ public class ControlBD {
     }
     
     public String registroPedido(int id,String cliente, String domiciliario, double costo, 
-            String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega, int cantidad){
-        Pedido pedido = new Pedido(id,cliente,domiciliario,costo,estado,fechaCreacion,fechaEntrega,tiempoEntrega);
+            String estado,String tiempoEntrega, int cantidad){
+        Pedido pedido = new Pedido(id,cliente,domiciliario,costo,estado,tiempoEntrega);
         return pedido.registroPed(this.connection);
     }
 

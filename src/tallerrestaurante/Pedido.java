@@ -22,18 +22,13 @@ public class Pedido {
     private String fechaCreacion;
     private String fechaEntrega;
     private String tiempoEntrega;
-    private Cliente client;
-    private Domiciliario domi;
-    private Producto prod;
 
-    public Pedido(int id, String cliente, String domiciliario, double costo, String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega) {
+    public Pedido(int id, String cliente, String domiciliario, double costo, String estado,  String tiempoEntrega) {
         this.id = id;
         this.cliente = cliente;
         this.domiciliario = domiciliario;
         this.costo = costo;
         this.estado = estado;
-        this.fechaCreacion = fechaCreacion;
-        this.fechaEntrega = fechaEntrega;
         this.tiempoEntrega = tiempoEntrega;
     }
 
@@ -41,19 +36,14 @@ public class Pedido {
         try{
             String sql = "INSERT INTO pedido (cliente, domiciliario, costo, estado, fechaCreacion, tiempoEntrega) VALUES (?,?,?,?,?,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, client.getEmail());
-            statement.setString(2, domi.getCc());
-            statement.setDouble(3, this.costo);
-            statement.setString(4, this.estado);
-            statement.setString(5, "NOW()");
-            statement.setInt(6, Integer.parseInt(this.tiempoEntrega));
+            statement.setString(1, domiciliario);
+            statement.setDouble(2, this.costo);
+            statement.setString(3, "En preparacion");
+            statement.setString(4, "NOW()");
+            statement.setInt(5, Integer.parseInt(this.tiempoEntrega));
             if(statement.executeUpdate() != 1){
                 throw new SQLException();
             }
-            sql = "INSERT INTO productoPedido VALUES (?,?,?)";
-            statement = connection.prepareStatement(sql);
-            statement.setInt(1, this.id);
-            statement.setString(2, prod.getId());
 //            statement.setString(3, );
             if(statement.executeUpdate() != 1){
                 throw new SQLException();
