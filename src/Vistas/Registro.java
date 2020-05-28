@@ -463,15 +463,16 @@ public class Registro extends javax.swing.JFrame {
       
         String respuesta = control.registroCliente(nombre,apellido,email,telefono,password,direccion);
         if(respuesta == null){
-        Login login = new Login();
-        login.setVisible(true);
-        login.pack();
-        login.setLocationRelativeTo(null);
-        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.dispose();
-        }else{
-        JOptionPane.showMessageDialog(null, respuesta);
-        } 
+            JOptionPane.showMessageDialog(null, "Registro con éxito");
+            Login login = new Login();
+            login.setVisible(true);
+            login.pack();
+            login.setLocationRelativeTo(null);
+            login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.dispose();
+            }else{
+            JOptionPane.showMessageDialog(null, respuesta);
+            } 
     }//GEN-LAST:event_btRegistrarMouseClicked
 
     private void btCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCancelarMouseClicked
