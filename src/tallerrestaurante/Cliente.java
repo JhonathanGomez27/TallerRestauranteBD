@@ -26,6 +26,7 @@ public class Cliente {
         this.telefono = telefono;
         this.password = password;
         this.direccion = direccion;
+        
     }
 
     public String registroClient(Connection connection){
