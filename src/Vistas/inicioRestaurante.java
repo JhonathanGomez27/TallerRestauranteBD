@@ -63,7 +63,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaProductos = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taDescripcion = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         labelcc = new javax.swing.JLabel();
@@ -341,9 +341,9 @@ public class inicioRestaurante extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tablaProductos);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        taDescripcion.setColumns(20);
+        taDescripcion.setRows(5);
+        jScrollPane3.setViewportView(taDescripcion);
 
         jLabel1.setFont(new java.awt.Font("Samanata", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(242, 251, 254));
@@ -926,8 +926,12 @@ public class inicioRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jtPrecioKeyTyped
 
     private void tablaProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaProductosMouseClicked
-        // TODO add your handling code here:
-        System.out.println("row: "+tablaProductos.getSelectedRow());
+        
+        ArrayList<Producto> productos = new ArrayList<>();
+        productos = control.listaProdcutos();
+        int indice = tablaProductos.getSelectedRow();
+        
+        taDescripcion.setText(productos.get(indice).getDescripcion());
     }//GEN-LAST:event_tablaProductosMouseClicked
 
     public ArrayList<Domiciliario> listaDomiciliarios(){
@@ -1007,7 +1011,6 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jtApeDomi;
     private javax.swing.JTextField jtDescripcion;
     private javax.swing.JTextField jtDirDomi;
@@ -1027,6 +1030,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JLabel labelcc3;
     private javax.swing.JLabel labelcc4;
     private javax.swing.JLabel labelcc5;
+    private javax.swing.JTextArea taDescripcion;
     private javax.swing.JTable tablaProductos;
     private javax.swing.JTabbedPane tableProductos;
     // End of variables declaration//GEN-END:variables
