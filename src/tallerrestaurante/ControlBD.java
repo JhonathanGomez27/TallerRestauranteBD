@@ -75,19 +75,15 @@ public class ControlBD {
         
     }
     
-    public String actualizaCliente(String nombres, String apellidos, String email, 
+    public String actualizarCliente(String nombres, String apellidos, String email, 
                                 String telefono){
-        return actualizarCliente(this.connection);   
-    }
-    
-    public String actualizarCliente(Connection connection){
         try{   
-            String sql = "UPDATE producto SET nombres = ?, apellidos = ?, telefono = ? WHERE email = ?";
+            String sql = "UPDATE cliente SET nombres = ?, apellidos = ?, telefono = ? WHERE email = ?";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, getNombres());
-            statement.setString(2, getApellidos());
-            statement.setString(3, getTelefono());
-            statement.setString(4, getDireccion());
+            statement.setString(1, nombres);
+            statement.setString(2, apellidos);
+            statement.setString(3, telefono);
+            statement.setString(4, email);
             if(statement.executeUpdate() != 1){
                 throw new SQLException();
             }
@@ -202,7 +198,19 @@ public class ControlBD {
     }
     
     public void logout(){
-        this.cliente=null;
+        try
+        {
+            if(connection != null)
+            {
+                connection.close();
+                connection = null;
+                this.cliente=null;
+            }
+        }
+        catch(SQLException e)
+        {
+            System.err.println("ERROR cerrando la conexión: " + e.getMessage());
+        }
     }
     
     public String getNombres(){
