@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author ubuntu
@@ -14,6 +15,7 @@ public class ControlBD {
     private Pedido pedido;
     private Producto producto;
     private Connection connection;
+    
 
     public ControlBD() {
         conexionBD();
@@ -91,6 +93,63 @@ public class ControlBD {
         
         Domiciliario domiciliario = new Domiciliario(cc,nombres,apellidos,email,telefono,direccion);
         return domiciliario.registroDomiciliario(connection);
+    }
+    
+    public ArrayList<Producto> listaProdcutos(){
+        ArrayList<Producto> productos = new ArrayList<>();
+        
+        try{
+            String sql = "SELECT * FROM producto";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet res = statement.executeQuery();
+            
+            while(res.next()){
+                String id = res.getString("id");
+                String nombre = res.getString("nombre");
+                String descripcion = res.getString("descripcion");
+                String pre = res.getString("precio");
+                String tP = res.getString("tiempoPreparacion");
+                
+                double precio = Double.parseDouble(pre);
+                int tiempoPreparacion = Integer.parseInt(tP);
+                
+                Producto product = new Producto(id,nombre,descripcion,precio,tiempoPreparacion);
+                productos.add(product);
+            }
+            
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudieron enviar los datos para la validación en la BD");
+        }
+        
+        return productos;
+    }
+    
+    public ArrayList<Domiciliario> listadoDomi(){
+        
+        ArrayList<Domiciliario> listaDomiciliarios = new ArrayList<>();
+        
+        try{
+            String sql = "SELECT * FROM domiciliario";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet res = statement.executeQuery();
+            
+            while(res.next()){
+                String cc = res.getString("cc");
+                String nombres = res.getString("nombres");
+                String apellidos = res.getString("apellidos");
+                String email = res.getString("email");
+                String telefono = res.getString("telefono");
+                String direccion = res.getString("direccion");
+                
+                Domiciliario domiciliario = new Domiciliario(cc,nombres,apellidos,email,telefono,direccion);
+                listaDomiciliarios.add(domiciliario);
+            }
+            
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudieron enviar los datos para la validación en la BD");
+        }
+        
+        return listaDomiciliarios;
     }
     
     public void logout(){

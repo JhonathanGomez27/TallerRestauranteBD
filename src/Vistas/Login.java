@@ -272,17 +272,13 @@ public class Login extends javax.swing.JFrame {
         if(password.isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese una contraseña");
         }
-        if(email.contains("adrest") & password.contains("rest123")){
-            String respuesta = control.validarDatosLogin(email, password);
-            if(respuesta == null){
+        if(email.equals("adrest") & password.equals("rest123")){
+            
             inicioRestaurante iniRest = new inicioRestaurante(control);
             iniRest.setVisible(true);
             iniRest.pack();
             iniRest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             this.dispose();
-            }else{
-            JOptionPane.showMessageDialog(null, respuesta);
-            }
         }else{
             String respuesta = control.validarDatosLogin(email, password);
             if(respuesta == null){
