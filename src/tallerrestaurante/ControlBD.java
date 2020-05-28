@@ -75,6 +75,25 @@ public class ControlBD {
         
     }
     
+    public String actualizarCliente(String nombres, String apellidos, String email, 
+                                String telefono){
+        try{   
+            String sql = "UPDATE cliente SET nombres = ?, apellidos = ?, telefono = ? WHERE email = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, nombres);
+            statement.setString(2, apellidos);
+            statement.setString(3, telefono);
+            statement.setString(4, email);
+            if(statement.executeUpdate() != 1){
+                throw new SQLException();
+            }
+            return null;
+        }
+        catch(SQLException ex){
+            return "No se pudieron enviar los datos para actulizar la BD";
+        }
+    }
+    
     public String registroPedido(int id,String cliente, String domiciliario, double costo, 
             String estado,String tiempoEntrega, int cantidad){
         Pedido pedido = new Pedido(id,cliente,domiciliario,costo,estado,tiempoEntrega);
@@ -179,7 +198,19 @@ public class ControlBD {
     }
     
     public void logout(){
-        this.cliente=null;
+        try
+        {
+            if(connection != null)
+            {
+                connection.close();
+                connection = null;
+                this.cliente=null;
+            }
+        }
+        catch(SQLException e)
+        {
+            System.err.println("ERROR cerrando la conexión: " + e.getMessage());
+        }
     }
     
     public String getNombres(){
