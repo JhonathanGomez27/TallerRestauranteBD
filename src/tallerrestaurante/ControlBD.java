@@ -75,6 +75,29 @@ public class ControlBD {
         
     }
     
+    public String actualizaCliente(String nombres, String apellidos, String email, 
+                                String telefono){
+        return actualizarCliente(this.connection);   
+    }
+    
+    public String actualizarCliente(Connection connection){
+        try{   
+            String sql = "UPDATE producto SET nombres = ?, apellidos = ?, telefono = ? WHERE email = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, getNombres());
+            statement.setString(2, getApellidos());
+            statement.setString(3, getTelefono());
+            statement.setString(4, getDireccion());
+            if(statement.executeUpdate() != 1){
+                throw new SQLException();
+            }
+            return null;
+        }
+        catch(SQLException ex){
+            return "No se pudieron enviar los datos para actulizar la BD";
+        }
+    }
+    
     public String registroPedido(int id,String cliente, String domiciliario, double costo, 
             String estado,String tiempoEntrega, int cantidad){
         Pedido pedido = new Pedido(id,cliente,domiciliario,costo,estado,tiempoEntrega);
