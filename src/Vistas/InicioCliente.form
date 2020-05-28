@@ -352,6 +352,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jtPrecioTotal" min="-2" pref="130" max="-2" attributes="0"/>
                                       <Component id="jComboBox1" min="-2" pref="130" max="-2" attributes="0"/>
+                                      <Component id="jtDuracion" alignment="0" min="-2" pref="42" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="114" max="32767" attributes="0"/>
                               </Group>
@@ -378,7 +379,9 @@
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                          <EmptySpace pref="26" max="32767" attributes="0"/>
+                          <Component id="jtDuracion" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Component id="btRealizarPedido" min="-2" pref="38" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
@@ -449,6 +452,14 @@
                 <Component class="javax.swing.JToggleButton" name="btRealizarPedido">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Realizar Pedido"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btRealizarPedidoMouseClicked"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jtDuracion">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="0"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -531,7 +542,6 @@
                                   <Component id="btCancelar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                                   <Component id="btnActualizar" min="-2" pref="164" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="24" pref="24" max="-2" attributes="0"/>

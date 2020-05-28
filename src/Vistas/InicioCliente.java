@@ -33,6 +33,7 @@ public class InicioCliente extends javax.swing.JFrame {
         listarProd();
         spinner1();
         model = new DefaultTableModel();
+        model.addColumn("ID");
         model.addColumn("Nombre");
         model.addColumn("Cantidad");
         model.addColumn("Precio");
@@ -80,6 +81,7 @@ public class InicioCliente extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         btRealizarPedido = new javax.swing.JToggleButton();
+        jtDuracion = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -266,6 +268,13 @@ public class InicioCliente extends javax.swing.JFrame {
         jLabel10.setText("Metodo de pago:");
 
         btRealizarPedido.setText("Realizar Pedido");
+        btRealizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btRealizarPedidoMouseClicked(evt);
+            }
+        });
+
+        jtDuracion.setText("0");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -287,7 +296,8 @@ public class InicioCliente extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jtPrecioTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 114, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -306,7 +316,9 @@ public class InicioCliente extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jtDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
                 .addComponent(btRealizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
         );
@@ -441,8 +453,7 @@ public class InicioCliente extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addComponent(btCancelar)
                         .addGap(49, 49, 49)
-                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
         );
         jPanel5Layout.setVerticalGroup(
@@ -580,15 +591,18 @@ public class InicioCliente extends javax.swing.JFrame {
             double precio = productos.get(indice).getPrecio()*Integer.valueOf(cantidadP);
         
         
-            String []prod = new String[3];
+            String []prod = new String[4];
 
-
-            prod[0] = productos.get(indice).getNombre();
-            prod[1] = cantidadP;
-            prod[2] = String.valueOf(precio);
+            prod[0] = productos.get(indice).getId();
+            prod[1] = productos.get(indice).getNombre();
+            prod[2] = cantidadP;
+            prod[3] = String.valueOf(precio);
 
             String precioT = String.valueOf(Double.valueOf(jtPrecioTotal.getText())+precio);
             jtPrecioTotal.setText(precioT);
+            for(int i=0;i<productos.size();i++){
+                
+            }
             
             model.addRow(prod);
         }
@@ -640,6 +654,15 @@ public class InicioCliente extends javax.swing.JFrame {
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btCancelarActionPerformed
+
+    private void btRealizarPedidoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btRealizarPedidoMouseClicked
+        // TODO add your handling code here:
+        ControlBD control = new ControlBD();
+        String clientee = jtEmailCliente.getText();
+        double costo = Integer.valueOf(jtPrecioTotal.getText());
+        
+        //control.registroPedido(clientee, costo, "", tiempoEntrega, WIDTH, producto)
+    }//GEN-LAST:event_btRealizarPedidoMouseClicked
 
     public ArrayList<Producto> listaProductos(){
         ControlBD control = new ControlBD();
@@ -705,6 +728,7 @@ public class InicioCliente extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jtApellidosCliente;
+    private javax.swing.JTextField jtDuracion;
     private javax.swing.JTextField jtEmailCliente;
     private javax.swing.JTextField jtNombreCliente;
     private javax.swing.JTextField jtPrecioTotal;
