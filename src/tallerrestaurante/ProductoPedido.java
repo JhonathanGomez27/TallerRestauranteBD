@@ -42,7 +42,9 @@ public class ProductoPedido {
                 return "El id del pedido ya esta registrado";
             }
             
+            sql = "";
             
+            sql = "";
             
             return null;
         }catch(SQLException ex){
