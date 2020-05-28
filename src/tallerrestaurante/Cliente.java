@@ -47,20 +47,14 @@ public class Cliente {
                 return "El telefono ya existe, intenta de nuevo";
             }
             
-            sql = "INSERT INTO cliente VALUES (?,?,?,?,?)";
+            sql = "INSERT INTO cliente VALUES (?,?,?,?,?,?)";
             statement = connection.prepareStatement(sql);
             statement.setString(1, this.nombres);
             statement.setString(2, this.apellidos);
             statement.setString(3, this.email);
             statement.setString(4, this.telefono);
             statement.setString(5, this.password);
-            if(statement.executeUpdate() != 1){
-                throw new SQLException();
-            }
-            sql = "INSERT INTO direccionCliente VALUES (?,?)";
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, this.email);
-            statement.setString(2, this.direccion);
+            statement.setString(6, this.direccion);
             if(statement.executeUpdate() != 1){
                 throw new SQLException();
             }
