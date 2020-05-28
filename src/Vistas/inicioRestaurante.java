@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import tallerrestaurante.ControlBD;
 import tallerrestaurante.Domiciliario;
+import tallerrestaurante.Producto;
 
 /**
  *
@@ -26,7 +27,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     public inicioRestaurante(ControlBD control) {
         initComponents();
         this.setLocationRelativeTo(null);
-        listarDom();
+        //listarDom();
         
     }
 
@@ -59,6 +60,11 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jtTiempoPrep = new javax.swing.JTextField();
         btnCancelarprod = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaProductos = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         labelcc = new javax.swing.JLabel();
         jtccDom = new javax.swing.JTextField();
@@ -209,6 +215,11 @@ public class inicioRestaurante extends javax.swing.JFrame {
         jtPrecio.setBackground(new java.awt.Color(183, 183, 183));
         jtPrecio.setFont(new java.awt.Font("Samanata", 1, 15)); // NOI18N
         jtPrecio.setForeground(new java.awt.Color(1, 1, 1));
+        jtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtPrecioKeyTyped(evt);
+            }
+        });
 
         btnAgregarProd.setBackground(new java.awt.Color(253, 189, 100));
         btnAgregarProd.setText("Agregar Producto");
@@ -315,15 +326,50 @@ public class inicioRestaurante extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(41, 38, 43));
 
+        tablaProductos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tablaProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaProductosMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tablaProductos);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jLabel1.setFont(new java.awt.Font("Samanata", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(242, 251, 254));
+        jLabel1.setText("Descripcion:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 476, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 35, Short.MAX_VALUE))
         );
 
         tableProductos.addTab("Productos", jPanel3);
@@ -638,14 +684,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jtNombreProductoKeyTyped
 
     private void jtIdProductoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtIdProductoKeyTyped
-        char c = evt.getKeyChar();
-        if (Character.isDigit(c) == false) {
-        }else{
-            evt.consume();
-        }
-
-        if (jtIdProducto.getText().length()== 30)
-        evt.consume();
+        
     }//GEN-LAST:event_jtIdProductoKeyTyped
 
     private void jtDescripcionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDescripcionKeyTyped
@@ -693,6 +732,12 @@ public class inicioRestaurante extends javax.swing.JFrame {
         }else{
         JOptionPane.showMessageDialog(null, respuesta);
         } 
+        
+        jtIdProducto.setText("");
+        jtNombreProducto.setText("");
+        jtPrecio.setText("");
+        jtDescripcion.setText("");
+        jtTiempoPrep.setText("");
     }//GEN-LAST:event_btnAgregarProdMouseClicked
 
     private void jtNombreProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreProductoActionPerformed
@@ -716,23 +761,49 @@ public class inicioRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_jtccDomActionPerformed
 
     private void jtccDomKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtccDomKeyTyped
-        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+            evt.consume();
+        }else{
+            
+        }
+        
+        if (jtccDom.getText().length()== 10) 
+            evt.consume();
     }//GEN-LAST:event_jtccDomKeyTyped
 
     private void jtNomDomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNomDomiActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtNomDomiActionPerformed
 
     private void jtNomDomiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNomDomiKeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+        }else{
+            evt.consume();
+        }
+        
+        if (jtNomDomi.getText().length()== 30) 
+            evt.consume();
     }//GEN-LAST:event_jtNomDomiKeyTyped
 
     private void jtApeDomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtApeDomiActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jtApeDomiActionPerformed
 
     private void jtApeDomiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtApeDomiKeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+        }else{
+            evt.consume();
+        }
+        
+        if (jtApeDomi.getText().length()== 30) 
+            evt.consume();
     }//GEN-LAST:event_jtApeDomiKeyTyped
 
     private void jtEmailDomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEmailDomiActionPerformed
@@ -749,6 +820,15 @@ public class inicioRestaurante extends javax.swing.JFrame {
 
     private void jtTelDomiKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelDomiKeyTyped
         // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+            evt.consume();
+        }else{
+            
+        }
+        
+        if (jtTelDomi.getText().length()== 10) 
+            evt.consume();
     }//GEN-LAST:event_jtTelDomiKeyTyped
 
     private void jtDirDomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDirDomiActionPerformed
@@ -824,12 +904,31 @@ public class inicioRestaurante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarprodMouseClicked
 
     private void tableProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProductosMouseClicked
+        listarDom();
+        listarProd();
         
     }//GEN-LAST:event_tableProductosMouseClicked
 
     private void jtTablaDomiciliariosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtTablaDomiciliariosMousePressed
        
     }//GEN-LAST:event_jtTablaDomiciliariosMousePressed
+
+    private void jtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioKeyTyped
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c) == false) {
+            evt.consume();
+        }else{
+            
+        }
+        
+        if (jtPrecio.getText().length()== 10) 
+            evt.consume();
+    }//GEN-LAST:event_jtPrecioKeyTyped
+
+    private void tablaProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaProductosMouseClicked
+        // TODO add your handling code here:
+        System.out.println("row: "+tablaProductos.getSelectedRow());
+    }//GEN-LAST:event_tablaProductosMouseClicked
 
     public ArrayList<Domiciliario> listaDomiciliarios(){
         ControlBD control = new ControlBD();
@@ -839,11 +938,31 @@ public class inicioRestaurante extends javax.swing.JFrame {
         
         return listaDomiciliarios;
     }
+    
+    public ArrayList<Producto> listaProductos(){
+        ControlBD control = new ControlBD();
+        ArrayList<Producto> productos = new ArrayList<>();
+        productos = control.listaProdcutos();
+        return productos;
+    }
+    
+    public void listarProd(){
+        ArrayList<Producto> productos = listaProductos();
+        String [][]prod = new String[productos.size()][4];
+        for(int i=0;i<productos.size();i++){
+            prod[i][0] = productos.get(i).getId();
+            prod[i][1] = productos.get(i).getNombre();
+            prod[i][2] = Double.toString(productos.get(i).getPrecio());
+            prod[i][3] = Integer.toString(productos.get(i).getTiempoPreparacion());
+        }
+        
+        tablaProductos.setModel(new javax.swing.table.DefaultTableModel 
+            (prod,new String[]{"ID","Nombre","Precio","Tiempo Preparacion"}));
+    }
    
     public void listarDom(){
         ArrayList<Domiciliario> listadoDomiciliarios;
         listadoDomiciliarios = listaDomiciliarios();
-        System.out.println("listado: "+listadoDomiciliarios.get(0).getNombres());
         String [][]dom = new String[listadoDomiciliarios.size()][6];
         for(int i=0;i<listadoDomiciliarios.size();i++){
             
@@ -870,6 +989,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarProd;
     private javax.swing.JButton btnCancelarDOmi;
     private javax.swing.JButton btnCancelarprod;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -885,6 +1005,9 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jtApeDomi;
     private javax.swing.JTextField jtDescripcion;
     private javax.swing.JTextField jtDirDomi;
@@ -904,6 +1027,7 @@ public class inicioRestaurante extends javax.swing.JFrame {
     private javax.swing.JLabel labelcc3;
     private javax.swing.JLabel labelcc4;
     private javax.swing.JLabel labelcc5;
+    private javax.swing.JTable tablaProductos;
     private javax.swing.JTabbedPane tableProductos;
     // End of variables declaration//GEN-END:variables
 }

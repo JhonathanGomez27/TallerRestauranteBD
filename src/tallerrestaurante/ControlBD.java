@@ -89,6 +89,35 @@ public class ControlBD {
         return domiciliario.registroDomiciliario(connection);
     }
     
+    public ArrayList<Producto> listaProdcutos(){
+        ArrayList<Producto> productos = new ArrayList<>();
+        
+        try{
+            String sql = "SELECT * FROM producto";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet res = statement.executeQuery();
+            
+            while(res.next()){
+                String id = res.getString("id");
+                String nombre = res.getString("nombre");
+                String descripcion = res.getString("descripcion");
+                String pre = res.getString("precio");
+                String tP = res.getString("tiempoPreparacion");
+                
+                double precio = Double.parseDouble(pre);
+                int tiempoPreparacion = Integer.parseInt(tP);
+                
+                Producto product = new Producto(id,nombre,descripcion,precio,tiempoPreparacion);
+                productos.add(product);
+            }
+            
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "No se pudieron enviar los datos para la validación en la BD");
+        }
+        
+        return productos;
+    }
+    
     public ArrayList<Domiciliario> listadoDomi(){
         
         ArrayList<Domiciliario> listaDomiciliarios = new ArrayList<>();

@@ -395,7 +395,7 @@ public class Registro extends javax.swing.JFrame {
         }
         
         if (jtApellidos.getText().length()== 30) 
-            evt.consume(); 
+            evt.consume();
     }//GEN-LAST:event_jtApellidosKeyTyped
 
     private void jtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoKeyTyped
