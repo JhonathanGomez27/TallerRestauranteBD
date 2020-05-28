@@ -24,6 +24,7 @@ public class Pedido {
     private String tiempoEntrega;
     private Cliente client;
     private Domiciliario domi;
+    private Producto prod;
 
     public Pedido(int id, String cliente, String domiciliario, double costo, String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega) {
         this.id = id;
@@ -46,6 +47,14 @@ public class Pedido {
             statement.setString(4, this.estado);
             statement.setString(5, "NOW()");
             statement.setInt(6, Integer.parseInt(this.tiempoEntrega));
+            if(statement.executeUpdate() != 1){
+                throw new SQLException();
+            }
+            sql = "INSERT INTO productoPedido VALUES (?,?,?)";
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, this.id);
+            statement.setString(2, prod.getId());
+//            statement.setString(3, );
             if(statement.executeUpdate() != 1){
                 throw new SQLException();
             }

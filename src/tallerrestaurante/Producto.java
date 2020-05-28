@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author jhonathan
  */
 public class Producto {
-     private String id;
+    private String id;
     private String nombre;
     private String descripcion;
     private double precio;

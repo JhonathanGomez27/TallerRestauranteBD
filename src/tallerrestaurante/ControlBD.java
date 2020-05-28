@@ -76,14 +76,12 @@ public class ControlBD {
     }
     
     public String registroPedido(int id,String cliente, String domiciliario, double costo, 
-            String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega){
-        ArrayList<String> prod = new ArrayList<>();
+            String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega, int cantidad){
         Pedido pedido = new Pedido(id,cliente,domiciliario,costo,estado,fechaCreacion,fechaEntrega,tiempoEntrega);
         return pedido.registroPed(this.connection);
     }
 
-    public String registroProducto(String id, String nombre, String descripcion, Double telefono, Integer tiempo){
-        ArrayList<String> prod = new ArrayList<>();
+    public String registroProducto(String id, String nombre, String descripcion, Double telefono, int tiempo){
         Restaurante producto = new Restaurante(id,nombre,descripcion,telefono,tiempo);
         return producto.registroProduct(this.connection);
     } 
