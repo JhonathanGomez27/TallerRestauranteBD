@@ -75,7 +75,7 @@ public class ControlBD {
         
     }
     
-    public String registroPedido(int id, String cliente, String domiciliario, double costo, 
+    public String registroPedido(int id,String cliente, String domiciliario, double costo, 
             String estado, String fechaCreacion, String fechaEntrega, String tiempoEntrega){
         ArrayList<String> prod = new ArrayList<>();
         Pedido pedido = new Pedido(id,cliente,domiciliario,costo,estado,fechaCreacion,fechaEntrega,tiempoEntrega);
